@@ -1,0 +1,398 @@
+{
+  "edges": [
+    {
+      "from": "tunnel:k3s",
+      "kind": "routes-to",
+      "to": "cluster:k3s"
+    },
+    {
+      "from": "dns:cronicle.pub.example.com",
+      "kind": "routes-to",
+      "to": "tunnel:k3s"
+    },
+    {
+      "from": "dns:frigate.pub.example.com",
+      "kind": "routes-to",
+      "to": "tunnel:k3s"
+    },
+    {
+      "from": "dns:grafana.pub.example.com",
+      "kind": "routes-to",
+      "to": "tunnel:k3s"
+    },
+    {
+      "from": "dns:n8n.pub.example.com",
+      "kind": "routes-to",
+      "to": "tunnel:k3s"
+    },
+    {
+      "from": "dns:unifi.pub.example.com",
+      "kind": "routes-to",
+      "to": "tunnel:k3s"
+    },
+    {
+      "from": "dns:plex.pub.example.com",
+      "kind": "routes-to",
+      "to": "tunnel:k3s"
+    },
+    {
+      "from": "dns:vault.family.example",
+      "kind": "routes-to",
+      "to": "tunnel:k3s"
+    },
+    {
+      "from": "dns:router.pub.example.com",
+      "kind": "routes-to",
+      "to": "tunnel:k3s"
+    },
+    {
+      "from": "dns:router.pub.example.com",
+      "kind": "routes-to",
+      "to": "external:router"
+    },
+    {
+      "from": "dns:ha-01.family.example",
+      "kind": "routes-to",
+      "to": "tunnel:k3s"
+    },
+    {
+      "from": "dns:ha-01.family.example",
+      "kind": "routes-to",
+      "to": "external:ha-01"
+    },
+    {
+      "from": "dns:ntfy.pub.example.com",
+      "kind": "routes-to",
+      "to": "tunnel:k3s"
+    },
+    {
+      "from": "dns:kuma.pub.example.com",
+      "kind": "routes-to",
+      "to": "tunnel:k3s"
+    },
+    {
+      "from": "access:unifi_network_application",
+      "kind": "protects",
+      "to": "dns:unifi.pub.example.com"
+    },
+    {
+      "from": "access:kuma_dashboard",
+      "kind": "protects",
+      "to": "dns:kuma.pub.example.com"
+    },
+    {
+      "from": "access:kuma_push",
+      "kind": "protects",
+      "to": "dns:kuma.pub.example.com"
+    },
+    {
+      "from": "access:labodeludo_dev_staging",
+      "kind": "protects",
+      "to": "dns:dev.labodeludo.dev"
+    },
+    {
+      "from": "access:grafana",
+      "kind": "protects",
+      "to": "dns:grafana.pub.example.com"
+    },
+    {
+      "from": "access:cronicle",
+      "kind": "protects",
+      "to": "dns:cronicle.pub.example.com"
+    },
+    {
+      "from": "access:frigate_nvr",
+      "kind": "protects",
+      "to": "dns:frigate.pub.example.com"
+    },
+    {
+      "from": "access:n8n",
+      "kind": "protects",
+      "to": "dns:n8n.pub.example.com"
+    },
+    {
+      "from": "access:pfsense_passerelle",
+      "kind": "protects",
+      "to": "dns:router.pub.example.com"
+    },
+    {
+      "from": "access:labodeludo_dev_staging_pages",
+      "kind": "protects",
+      "to": "dns:labodeludo-dev.pages.dev"
+    },
+    {
+      "from": "dns:labodeludo.dev",
+      "kind": "routes-to",
+      "to": "bucket:labodeludo.dev"
+    }
+  ],
+  "layer": "edge",
+  "nodes": [
+    {
+      "id": "tunnel:k3s",
+      "kind": "tunnel",
+      "label": "k3s",
+      "layer": "edge",
+      "meta": {},
+      "source": "live/tunnels.tf"
+    },
+    {
+      "id": "dns:cronicle.pub.example.com",
+      "kind": "dns",
+      "label": "cronicle.pub.example.com",
+      "layer": "edge",
+      "meta": {
+        "origin": "https://traefik.kube-system.svc.cluster.local:443"
+      },
+      "source": "live/tunnels.tf"
+    },
+    {
+      "id": "dns:frigate.pub.example.com",
+      "kind": "dns",
+      "label": "frigate.pub.example.com",
+      "layer": "edge",
+      "meta": {
+        "origin": "https://traefik.kube-system.svc.cluster.local:443"
+      },
+      "source": "live/tunnels.tf"
+    },
+    {
+      "id": "dns:grafana.pub.example.com",
+      "kind": "dns",
+      "label": "grafana.pub.example.com",
+      "layer": "edge",
+      "meta": {
+        "origin": "https://traefik.kube-system.svc.cluster.local:443"
+      },
+      "source": "live/tunnels.tf"
+    },
+    {
+      "id": "dns:n8n.pub.example.com",
+      "kind": "dns",
+      "label": "n8n.pub.example.com",
+      "layer": "edge",
+      "meta": {
+        "origin": "https://traefik.kube-system.svc.cluster.local:443"
+      },
+      "source": "live/tunnels.tf"
+    },
+    {
+      "id": "dns:unifi.pub.example.com",
+      "kind": "dns",
+      "label": "unifi.pub.example.com",
+      "layer": "edge",
+      "meta": {
+        "origin": "https://unifi.unifi.svc.cluster.local:8443"
+      },
+      "source": "live/tunnels.tf"
+    },
+    {
+      "id": "dns:plex.pub.example.com",
+      "kind": "dns",
+      "label": "plex.pub.example.com",
+      "layer": "edge",
+      "meta": {
+        "origin": "https://traefik.kube-system.svc.cluster.local:443"
+      },
+      "source": "live/tunnels.tf"
+    },
+    {
+      "id": "dns:vault.family.example",
+      "kind": "dns",
+      "label": "vault.family.example",
+      "layer": "edge",
+      "meta": {
+        "origin": "https://traefik.kube-system.svc.cluster.local:443"
+      },
+      "source": "live/tunnels.tf"
+    },
+    {
+      "id": "dns:router.pub.example.com",
+      "kind": "dns",
+      "label": "router.pub.example.com",
+      "layer": "edge",
+      "meta": {
+        "origin": "https://192.0.2.254:443"
+      },
+      "source": "live/tunnels.tf"
+    },
+    {
+      "id": "external:router",
+      "kind": "external",
+      "label": "router",
+      "layer": "external",
+      "meta": {
+        "origin": "https://192.0.2.254:443"
+      },
+      "source": "live/tunnels.tf"
+    },
+    {
+      "id": "dns:ha-01.family.example",
+      "kind": "dns",
+      "label": "ha-01.family.example",
+      "layer": "edge",
+      "meta": {
+        "origin": "https://192.0.2.34:443"
+      },
+      "source": "live/tunnels.tf"
+    },
+    {
+      "id": "external:ha-01",
+      "kind": "external",
+      "label": "ha-01",
+      "layer": "external",
+      "meta": {
+        "origin": "https://192.0.2.34:443"
+      },
+      "source": "live/tunnels.tf"
+    },
+    {
+      "id": "dns:ntfy.pub.example.com",
+      "kind": "dns",
+      "label": "ntfy.pub.example.com",
+      "layer": "edge",
+      "meta": {
+        "origin": "http://ntfy.ntfy.svc.cluster.local:80"
+      },
+      "source": "live/tunnels.tf"
+    },
+    {
+      "id": "dns:kuma.pub.example.com",
+      "kind": "dns",
+      "label": "kuma.pub.example.com",
+      "layer": "edge",
+      "meta": {
+        "origin": "http://uptime-kuma.kuma.svc.cluster.local:80"
+      },
+      "source": "live/tunnels.tf"
+    },
+    {
+      "id": "access:unifi_network_application",
+      "kind": "access",
+      "label": "UniFi Network Application",
+      "layer": "edge",
+      "meta": {
+        "domain": "unifi.pub.example.com"
+      },
+      "source": "live/access-apps.tf"
+    },
+    {
+      "id": "access:kuma_dashboard",
+      "kind": "access",
+      "label": "Kuma dashboard",
+      "layer": "edge",
+      "meta": {
+        "domain": "kuma.pub.example.com"
+      },
+      "source": "live/access-apps.tf"
+    },
+    {
+      "id": "access:kuma_push",
+      "kind": "access",
+      "label": "Kuma push (service token)",
+      "layer": "edge",
+      "meta": {
+        "domain": "kuma.pub.example.com/api/push"
+      },
+      "source": "live/access-apps.tf"
+    },
+    {
+      "id": "access:labodeludo_dev_staging",
+      "kind": "access",
+      "label": "labodeludo.dev staging",
+      "layer": "edge",
+      "meta": {
+        "domain": "dev.labodeludo.dev"
+      },
+      "source": "live/access-apps.tf"
+    },
+    {
+      "id": "dns:dev.labodeludo.dev",
+      "kind": "dns",
+      "label": "dev.labodeludo.dev",
+      "layer": "edge",
+      "meta": {},
+      "source": "live/access-apps.tf"
+    },
+    {
+      "id": "access:grafana",
+      "kind": "access",
+      "label": "Grafana",
+      "layer": "edge",
+      "meta": {
+        "domain": "grafana.pub.example.com"
+      },
+      "source": "live/access-apps.tf"
+    },
+    {
+      "id": "access:cronicle",
+      "kind": "access",
+      "label": "Cronicle",
+      "layer": "edge",
+      "meta": {
+        "domain": "cronicle.pub.example.com"
+      },
+      "source": "live/access-apps.tf"
+    },
+    {
+      "id": "access:frigate_nvr",
+      "kind": "access",
+      "label": "Frigate NVR",
+      "layer": "edge",
+      "meta": {
+        "domain": "frigate.pub.example.com"
+      },
+      "source": "live/access-apps.tf"
+    },
+    {
+      "id": "access:n8n",
+      "kind": "access",
+      "label": "n8n",
+      "layer": "edge",
+      "meta": {
+        "domain": "n8n.pub.example.com"
+      },
+      "source": "live/access-apps.tf"
+    },
+    {
+      "id": "access:pfsense_passerelle",
+      "kind": "access",
+      "label": "pfSense (router)",
+      "layer": "edge",
+      "meta": {
+        "domain": "router.pub.example.com"
+      },
+      "source": "live/access-apps.tf"
+    },
+    {
+      "id": "access:labodeludo_dev_staging_pages",
+      "kind": "access",
+      "label": "labodeludo.dev staging (pages.dev)",
+      "layer": "edge",
+      "meta": {
+        "domain": "labodeludo-dev.pages.dev"
+      },
+      "source": "live/access-apps.tf"
+    },
+    {
+      "id": "dns:labodeludo-dev.pages.dev",
+      "kind": "dns",
+      "label": "labodeludo-dev.pages.dev",
+      "layer": "edge",
+      "meta": {},
+      "source": "live/access-apps.tf"
+    },
+    {
+      "id": "dns:labodeludo.dev",
+      "kind": "dns",
+      "label": "labodeludo.dev",
+      "layer": "edge",
+      "meta": {
+        "origin": "s3-website"
+      },
+      "source": "live/dns-labodeludo-dev.tf"
+    }
+  ],
+  "repo": "cloudflare-iac-public",
+  "topologyVersion": 1
+}
